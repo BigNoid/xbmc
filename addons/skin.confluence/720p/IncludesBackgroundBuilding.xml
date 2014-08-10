@@ -32,7 +32,7 @@
 		</control>
 		<control type="image">
 			<include>BackgroundDimensions</include>
-			<texture>special://skin/backgrounds/media-overlay.jpg</texture>
+			<!--texture>special://skin/backgrounds/media-overlay.jpg</texture-->
 			<visible>[Player.HasVideo + !Skin.HasSetting(ShowBackgroundVideo)] + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
 			<include>VisibleFadeEffect</include>
 		</control>
