@@ -30,6 +30,7 @@
 #include "music/tags/MusicInfoTag.h"
 #include "utils/StringUtils.h"
 #include "settings/AdvancedSettings.h"
+#include "settings/Settings.h"
 #include "music/MusicThumbLoader.h"
 #include "video/VideoThumbLoader.h"
 
@@ -56,8 +57,8 @@ bool CRecentlyAddedJob::UpdateVideo()
   loader.OnLoaderStart();
   
   videodatabase.Open();
-
-  if (videodatabase.GetRecentlyAddedMoviesNav("videodb://recentlyaddedmovies/", items, NUM_ITEMS))
+  bool hideWatched = CSettings::GetInstance().GetBool("videolibrary.hiderecentlywatchedvideos");
+  if (videodatabase.GetRecentlyAddedMoviesNav("videodb://recentlyaddedmovies/", items, NUM_ITEMS, hideWatched))
   {  
     for (; i < items.Size(); ++i)
     {
@@ -96,8 +97,7 @@ bool CRecentlyAddedJob::UpdateVideo()
  
   i = 0;
   CFileItemList  TVShowItems; 
- 
-  if (videodatabase.GetRecentlyAddedEpisodesNav("videodb://recentlyaddedepisodes/", TVShowItems, NUM_ITEMS))
+  if (videodatabase.GetRecentlyAddedEpisodesNav("videodb://recentlyaddedepisodes/", TVShowItems, NUM_ITEMS, hideWatched))
   {
     for (; i < TVShowItems.Size(); ++i)
     {    
@@ -150,7 +150,7 @@ bool CRecentlyAddedJob::UpdateVideo()
   i = 0;
   CFileItemList MusicVideoItems;
 
-  if (videodatabase.GetRecentlyAddedMusicVideosNav("videodb://recentlyaddedmusicvideos/", MusicVideoItems, NUM_ITEMS))
+  if (videodatabase.GetRecentlyAddedMusicVideosNav("videodb://recentlyaddedmusicvideos/", MusicVideoItems, NUM_ITEMS, hideWatched))
   {
     for (; i < MusicVideoItems.Size(); ++i)
     {
