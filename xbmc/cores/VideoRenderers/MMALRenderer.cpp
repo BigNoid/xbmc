@@ -454,20 +454,6 @@ void CMMALRenderer::RenderUpdate(bool clear, DWORD flags, DWORD alpha)
 
   ManageDisplay();
 
-  // if running bypass, then the player might need the src/dst rects
-  // for sizing video playback on a layer other than the gles layer.
-  if (m_RenderUpdateCallBackFn)
-    (*m_RenderUpdateCallBackFn)(m_RenderUpdateCallBackCtx, m_sourceRect, m_destRect);
-
-  // if sharpness setting has changed, we should update it
-  if (m_sharpness != CMediaSettings::GetInstance().GetCurrentVideoSettings().m_Sharpness)
-  {
-    m_sharpness = CMediaSettings::GetInstance().GetCurrentVideoSettings().m_Sharpness;
-    char command[80], response[80];
-    sprintf(command, "scaling_sharpness %d", ((int)(50.0f * (m_sharpness + 1.0f) + 0.5f)));
-    vc_gencmd(response, sizeof response, command);
-  }
-
   if (m_format == RENDER_FMT_BYPASS)
   {
 #if defined(MMAL_DEBUG_VERBOSE)

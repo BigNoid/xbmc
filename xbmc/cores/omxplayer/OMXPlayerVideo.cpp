@@ -718,12 +718,6 @@ void OMXPlayerVideo::SetVideoRect(const CRect &InSrcRect, const CRect &InDestRec
   m_omxVideo.SetVideoRect(SrcRect, DestRect, m_video_stereo_mode, m_display_stereo_mode, m_StereoInvert);
 }
 
-void OMXPlayerVideo::RenderUpdateCallBack(const void *ctx, const CRect &SrcRect, const CRect &DestRect)
-{
-  OMXPlayerVideo *player = (OMXPlayerVideo*)ctx;
-  player->SetVideoRect(SrcRect, DestRect);
-}
-
 void OMXPlayerVideo::ResolutionUpdateCallBack(uint32_t width, uint32_t height, float framerate, float display_aspect)
 {
   RESOLUTION res  = g_graphicsContext.GetVideoResolution();

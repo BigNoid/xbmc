@@ -292,7 +292,7 @@ bool CEGLNativeTypeRaspberryPI::SetNativeResolution(const RESOLUTION_INFO &res)
       property.property = HDMI_PROPERTY_3D_STRUCTURE;
       if (CSettings::GetInstance().GetBool(CSettings::SETTING_VIDEOSCREEN_FRAMEPACKING) && CSettings::GetInstance().GetBool(CSettings::SETTING_VIDEOPLAYER_SUPPORTMVC) && res.fRefreshRate <= 30.0f)
         property.param1 = HDMI_3D_FORMAT_FRAME_PACKING;
-      else if (stereo_mode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
+      else if (res.dwFlags & D3DPRESENTFLAG_MODE3DSBS)
         property.param1 = HDMI_3D_FORMAT_SBS_HALF;
       else if (stereo_mode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
         property.param1 = HDMI_3D_FORMAT_TB_HALF;
@@ -393,9 +393,9 @@ bool CEGLNativeTypeRaspberryPI::SetNativeResolution(const RESOLUTION_INFO &res)
   DISPMANX_TRANSFORM_T transform = DISPMANX_NO_ROTATE;
   DISPMANX_UPDATE_HANDLE_T dispman_update = m_DllBcmHost->vc_dispmanx_update_start(0);
 
-  if (stereo_mode == RENDER_STEREO_MODE_SPLIT_VERTICAL)
+  if (res.dwFlags & D3DPRESENTFLAG_MODE3DSBS)
     transform = DISPMANX_STEREOSCOPIC_SBS;
-  else if (stereo_mode == RENDER_STEREO_MODE_SPLIT_HORIZONTAL)
+  else if (res.dwFlags & D3DPRESENTFLAG_MODE3DTB)
     transform = DISPMANX_STEREOSCOPIC_TB;
   else
     transform = DISPMANX_STEREOSCOPIC_MONO;
