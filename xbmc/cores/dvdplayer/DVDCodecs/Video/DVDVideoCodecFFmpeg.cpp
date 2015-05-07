@@ -265,6 +265,9 @@ bool CDVDVideoCodecFFmpeg::Open(CDVDStreamInfo &hints, CDVDCodecOptions &options
     else
     {
       int num_threads = std::min(8 /*MAX_THREADS*/, g_cpuInfo.getCPUCount());
+#ifdef TARGET_RASPBERRY_PI
+      num_threads = num_threads > 1 ? 2 * num_threads : num_threads;
+#endif
       if( num_threads > 1)
         m_pCodecContext->thread_count = num_threads;
       m_pCodecContext->thread_safe_callbacks = 1;
