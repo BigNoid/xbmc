@@ -25,6 +25,7 @@
 CGUIWindowStartup::CGUIWindowStartup(void)
     : CGUIWindow(WINDOW_STARTUP_ANIM, "Startup.xml")
 {
+  m_loadType = LOAD_ON_GUI_INIT;
 }
 
 CGUIWindowStartup::~CGUIWindowStartup(void)
