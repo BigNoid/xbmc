@@ -541,6 +541,8 @@ void CDVDPlayerAudio::Process()
         m_dvdAudio.Drain();
         m_dvdAudio.Flush();
         m_stalled = true;
+        // avoid busy spinning here
+        Sleep(10);
       }
 
       continue;
