@@ -187,16 +187,17 @@ bool CGUIDialogVideoInfo::OnMessage(CGUIMessage& message)
       else if (iControl == CONTROL_LIST)
       {
         int iAction = message.GetParam1();
+        int subItem = message.GetParam2();
         if (ACTION_SELECT_ITEM == iAction || ACTION_MOUSE_LEFT_CLICK == iAction)
         {
           CGUIMessage msg(GUI_MSG_ITEM_SELECTED, GetID(), iControl);
           OnMessage(msg);
-          int iItem = msg.GetParam1();
-          if (iItem < 0 || iItem >= m_castList->Size())
-            break;
-          std::string strItem = m_castList->Get(iItem)->GetLabel();
-          OnSearch(strItem);
+          subItem = msg.GetParam1();
         }
+        if (subItem >= m_castList->Size())
+          break;
+        std::string strItem = m_castList->Get(subItem)->GetLabel();
+        OnSearch(strItem);
       }
     }
     break;
