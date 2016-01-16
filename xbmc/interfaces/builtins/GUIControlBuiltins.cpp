@@ -64,12 +64,14 @@ static int SendClick(const std::vector<std::string>& params)
  *  \param params The parameters.
  *  \details params[0] = ID of control.
  *           params[1] = Action name.
- *           \params[2] = ID of window with control (optional).
+ *           params[2] = ID of window with control (optional).
+ *           \params[3] = ID of subitem of container (click, optional).
  */
 static int SendMessage(const std::vector<std::string>& params)
 {
   int controlID = atoi(params[0].c_str());
   int windowID = (params.size() == 3) ? CButtonTranslator::TranslateWindow(params[2]) : g_windowManager.GetActiveWindow();
+  int subItem = (params.size() > 3) ? atol(params[3].c_str()) : 0;
   if (params[1] == "moveup")
     g_windowManager.SendMessage(GUI_MSG_MOVE_OFFSET, windowID, controlID, 1);
   else if (params[1] == "movedown")
@@ -79,8 +81,9 @@ static int SendMessage(const std::vector<std::string>& params)
   else if (params[1] == "pagedown")
     g_windowManager.SendMessage(GUI_MSG_PAGE_DOWN, windowID, controlID);
   else if (params[1] == "click")
-    g_windowManager.SendMessage(GUI_MSG_CLICKED, controlID, windowID);
-
+    // param1 = ACTION_SELECT_ITEM
+    g_windowManager.SendMessage(GUI_MSG_CLICKED, controlID, windowID, 7, subItem);
+  
   return 0;
 }
 
