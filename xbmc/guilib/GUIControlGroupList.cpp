@@ -81,7 +81,7 @@ void CGUIControlGroupList::Process(unsigned int currentTime, CDirtyRegionList &d
       g_graphicsContext.SetOrigin(m_posX + pos - m_scroller.GetValue(), m_posY);
     control->DoProcess(currentTime, dirtyregions);
 
-    if (control->IsVisible())
+    if (control->IsVisible() && (control->CanFocus() || control->IsDisabled()))
     {
       if (IsControlOnScreen(pos, control))
       {
