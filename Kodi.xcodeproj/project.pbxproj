@@ -741,6 +741,7 @@
 		8883CEA70DD81807004E8B72 /* DVDSubtitleParserSSA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8883CEA30DD81807004E8B72 /* DVDSubtitleParserSSA.cpp */; };
 		8883CEA80DD81807004E8B72 /* DVDSubtitlesLibass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8883CEA50DD81807004E8B72 /* DVDSubtitlesLibass.cpp */; };
 		889B4D8E0E0EF86C00FAD25E /* RSSDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 889B4D8C0E0EF86C00FAD25E /* RSSDirectory.cpp */; };
+		8D0E755E1DB7F5C700CF0485 /* MultiProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0E755C1DB7F5C700CF0485 /* MultiProvider.cpp */; };
 		9A2FAD6A1C972BE10049652A /* ContextMenus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A2FAD681C972BE10049652A /* ContextMenus.cpp */; };
 		9A2FAD6B1C972BE10049652A /* ContextMenus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A2FAD681C972BE10049652A /* ContextMenus.cpp */; };
 		9A7368511C401F5F00CA169F /* DirectoryNodeInProgressTvShows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A73684F1C401F5F00CA169F /* DirectoryNodeInProgressTvShows.cpp */; };
@@ -3500,6 +3501,8 @@
 		889B4D8C0E0EF86C00FAD25E /* RSSDirectory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RSSDirectory.cpp; sourceTree = "<group>"; };
 		889B4D8D0E0EF86C00FAD25E /* RSSDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSDirectory.h; sourceTree = "<group>"; };
 		88ECB6580DE013C4003396A7 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = /System/Library/Frameworks/DiskArbitration.framework; sourceTree = "<absolute>"; };
+		8D0E755C1DB7F5C700CF0485 /* MultiProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MultiProvider.cpp; path = xbmc/listproviders/MultiProvider.cpp; sourceTree = SOURCE_ROOT; };
+		8D0E755D1DB7F5C700CF0485 /* MultiProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiProvider.h; path = xbmc/listproviders/MultiProvider.h; sourceTree = SOURCE_ROOT; };
 		8DD76F7E0486A8DE00D96B5E /* Kodi */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Kodi; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2FAD681C972BE10049652A /* ContextMenus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContextMenus.cpp; sourceTree = "<group>"; };
 		9A2FAD691C972BE10049652A /* ContextMenus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenus.h; sourceTree = "<group>"; };
@@ -6356,6 +6359,8 @@
 				7C8FC6ED1829A4580045153D /* DirectoryProvider.h */,
 				7C7BCDBF17727951004842FB /* IListProvider.cpp */,
 				7C7BCDC417727951004842FB /* IListProvider.h */,
+				8D0E755C1DB7F5C700CF0485 /* MultiProvider.cpp */,
+				8D0E755D1DB7F5C700CF0485 /* MultiProvider.h */,
 				7C7BCDC317727951004842FB /* StaticProvider.cpp */,
 				7C7BCDC217727951004842FB /* StaticProvider.h */,
 			);
@@ -9885,6 +9890,7 @@
 				DF54F7FE1B6580AD000FCBA4 /* ContextMenuItem.cpp in Sources */,
 				395C29C51A98A0E100EBC7AD /* ILanguageInvoker.cpp in Sources */,
 				E38E20580D25F9FD00618676 /* SmartPlaylistDirectory.cpp in Sources */,
+				8D0E755E1DB7F5C700CF0485 /* MultiProvider.cpp in Sources */,
 				E38E205B0D25F9FD00618676 /* StackDirectory.cpp in Sources */,
 				E38E205C0D25F9FD00618676 /* UPnPDirectory.cpp in Sources */,
 				E38E205E0D25F9FD00618676 /* DirectoryNode.cpp in Sources */,
