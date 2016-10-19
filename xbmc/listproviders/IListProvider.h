@@ -38,11 +38,18 @@ public:
   virtual ~IListProvider() {}
 
   /*! \brief Factory to create list providers.
-   \param node a TiXmlNode to create.
+   \param parent a parent TiXmlNode for the container.
    \param parentID id of parent window for context.
    \return the list provider, NULL if none.
    */
-  static IListProvider *Create(const TiXmlNode *node, int parentID);
+  static IListProvider *Create(const TiXmlNode *parent, int parentID);
+
+  /*! \brief Factory to create list providers.  Cannot create a multi-provider.
+   \param content the TiXmlNode for the content to create.
+   \param parentID id of parent window for context.
+   \return the list provider, NULL if none.
+   */
+  static IListProvider *CreateSingle(const TiXmlNode *content, int parentID);
 
   /*! \brief Update the list content
    \return true if the content has changed, false otherwise.
